@@ -1,0 +1,63 @@
+{
+  "manifest_version": 2,
+  // manifest版本，指定如何执行代码，由google官方发布，目前版本为2
+  "name": "知音漫客",
+  // 插件名称
+  "description": "去除 知音漫客 遮挡层",
+  // 插件描述
+  "version": "1.0",
+  // 插件版本号
+
+  "icons": {
+    // 显示在菜单栏的指示图标，大小范围16-128像素，可以指定多个不同像素图标
+    "48": "icon.ico"
+  },
+
+  "options_page": "options.html",
+  // 插件图标右键，点击弹出菜单的选项会跳到options.html页面
+
+  "chrome_url_overrides": {
+    // "newtab": "tab.html"
+    // 自定义页面替换chrome默认页面，如新标签页（newtab）、书签页面（bookmarks）和历史记录（history）。
+  },
+
+
+  "browser_action": {
+    // 工具栏图标
+
+    "default_icon": "icon.ico",
+    // 扩展log
+    "default_title": "知音漫客",
+    // 悬浮提示文字
+    "default_popup": "index.html"
+    // 点击后弹出index.html
+
+  },
+
+  "page_ctions": {
+    // 地址栏图标，不是显示在地址栏的右边，而是显示在地址内部右方，比如说收藏夹那个五角星
+  },
+
+
+
+// 下面两个我会在后面详细介绍
+ 
+  "background": {
+    // 扩展的后台页面
+    // "scripts": ["background.js"]
+  },
+
+
+  "content_scripts": [
+      {
+        //注入页面的脚本和css 
+          "matches": ["*://www.zymk.cn/*"],
+          // "js": ["delete.js"]
+          // "run_at": "document_start"
+          // "run_at": "document_end"
+          "css": ["hide.css"]
+      }
+  ]
+
+
+}
